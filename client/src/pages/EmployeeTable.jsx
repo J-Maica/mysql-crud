@@ -67,8 +67,13 @@ function EmployeeTable() {
       )
     );
     setSearchData(filteredData);
-    console.log(filteredData);
   };
+
+  const enterKey = (e) => {
+    if(e.key === "Enter"){
+      search()
+    }
+  }
 
   return (
     <div className="container mt-5">
@@ -84,8 +89,9 @@ function EmployeeTable() {
             className="form-control"
             value={searchVal}
             onChange={(e) => setSearchVal(e.target.value)}
+            onKeyDown={enterKey}
           />
-          <button className="btn btn-dark" onClick={search}>
+          <button className="btn btn-dark" onClick={search} >
             Search
           </button>
         </div>
