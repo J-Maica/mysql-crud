@@ -21,18 +21,7 @@ app.get("/read", (req, res) => {
      });
  })
 
-//  selected  for update
- app.get("/read/:id", (req, res) => {
-    db.query("SELECT * FROM employees",
-        (error, results) => {
-            if (error) {
-                console.error(error);
-                res.send("Error retrieving data from the database");
-            } else {
-                res.send(results);
-            }``
-        });
-    })
+
 
 //  add data
 app.post("/create", (req, res) => {
@@ -57,6 +46,19 @@ app.post("/create", (req, res) => {
     }
   );
 });
+
+//  selected  for update form
+app.get("/read/:id", (req, res) => {
+  db.query("SELECT * FROM employees",
+      (error, results) => {
+          if (error) {
+              console.error(error);
+              res.send("Error retrieving data from the database");
+          } else {
+              res.send(results);
+          }``
+      });
+  })
 
 // Update
 app.put("/update/:id", (req, res) => {
